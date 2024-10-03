@@ -76,7 +76,7 @@ function setupButtons(post) {
   if (editButton) {
     editButton.addEventListener("click", function (event) {
       event.preventDefault();
-      window.location.href = `/post/edit.html?id=${post.id}`; // Redirect to the edit page with the post ID
+      window.location.href = `./post/edit.html?id=${post.id}`; // Redirect to the edit page with the post ID
     });
   } else {
     console.error("Edit button not found or not configured correctly.");
@@ -101,7 +101,7 @@ function setupButtons(post) {
             await deleteBlogPost(post.id);
             modal.style.display = "none"; // Hide the modal after deletion
             setTimeout(() => {
-              window.location.href = "/index.html";
+              window.location.href = "./index.html";
             }, 1500); // 1.5 seconds delay
           });
         } else {
@@ -163,7 +163,7 @@ async function deleteBlogPost(postId) {
 
     // Redirect to the main blog feed after a short delay to allow the toast to display
     setTimeout(() => {
-      window.location.href = "/index.html";
+      window.location.href = "./index.html";
     }, 1500); // 1.5 seconds delay
   } catch (error) {
     console.error("Error deleting post:", error);

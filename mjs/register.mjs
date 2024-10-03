@@ -56,7 +56,7 @@ async function registerUser(name, email, password) {
       console.log("User registered successfully:", json);
       showToast("Registration successful!", "success");
       setTimeout(() => {
-        window.location.href = "/account/login.html";
+        window.location.href = "./account/login.html";
       }, 2000); // Add a delay for user to see the toast message
     } else {
       // Handle API errors

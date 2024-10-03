@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               await updateBlogPost(postId, blogPost);
               showToast("Post updated successfully!");
               setTimeout(() => {
-                window.location.href = `/post/index.html?id=${postId}`; // Redirect after 3 seconds
+                window.location.href = `./post/index.html?id=${postId}`; // Redirect after 3 seconds
               }, 1800);
             } else {
               // Creating a new post
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               showToast("Post created successfully!");
               clearForm(); // Clear the form
               setTimeout(() => {
-                window.location.href = "/index.html"; // Redirect after 3 seconds
+                window.location.href = "./index.html"; // Redirect after 3 seconds
               }, 1800);
             }
           } catch (error) {
@@ -205,7 +205,7 @@ async function handleEditBlogPost(postId, updatedPost) {
   );
   localStorage.setItem("blogPosts", JSON.stringify(updatedPosts));
 
-  window.location.href = "/index.html";
+  window.location.href = "./index.html";
 }
 
 // After deleting a post
@@ -215,5 +215,5 @@ async function handleDeleteBlogPost(postId) {
   const remainingPosts = savedPosts.filter((post) => post.data.id !== postId);
   localStorage.setItem("blogPosts", JSON.stringify(remainingPosts));
 
-  window.location.href = "/index.html";
+  window.location.href = "./index.html";
 }
