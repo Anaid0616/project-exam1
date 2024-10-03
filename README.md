@@ -152,9 +152,18 @@ npm start
 ---
 
 
+## **Contributing**
+Since this is a school project, contributions are not needed. However, if you have any feedback or suggestions, feel free to reach out!
+
+## **Contact**
+If you want to connect or learn more about me:
+
+Email: diana.bergelin@live.se
+
+ [LinkedIn](https://www.linkedin.com/in/diana-b-4209a72ba/)
+
+
 ## **License**
-
-This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License - see the LICENSE file for details.
-
+This project is not currently under any open-source license as it's a school project.
 
 [Back to Top](#FED1-Project-Exam-1)
