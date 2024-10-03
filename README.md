@@ -103,7 +103,7 @@ npm start
 
 ## **File Structure**
 
-**/assets **              # Images, logos, and other static files
+**/assets**              # Images, logos, and other static files
 
 **/mjs**                  # JavaScript modules
 
