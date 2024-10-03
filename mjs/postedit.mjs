@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               await updateBlogPost(postId, blogPost);
               showToast("Post updated successfully!");
               setTimeout(() => {
-                window.location.href = `./post/index.html?id=${postId}`; // Redirect after 3 seconds
+                window.location.href = `../post/index.html?id=${postId}`; // Redirect after 3 seconds
               }, 1800);
             } else {
               // Creating a new post
