@@ -76,7 +76,7 @@ function setupButtons(post) {
   if (editButton) {
     editButton.addEventListener("click", function (event) {
       event.preventDefault();
-      window.location.href = `../post/edit.html?id=${post.id}`; // Redirect to the edit page with the post ID
+      window.location.href = `../post/edit.html?id=${post.id}`;
     });
   } else {
     console.error("Edit button not found or not configured correctly.");
