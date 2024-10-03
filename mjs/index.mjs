@@ -80,14 +80,14 @@ function createSlide(post) {
   slide.classList.add("carousel-slide");
   slide.innerHTML = `
     <div class="blog-content">
-      <a href="/post/index.html?id=${post.id}">
+      <a href="./post/index.html?id=${post.id}">
         <img src="${post.media?.url || "default.jpg"}" class="slide-img" alt="${
     post.media?.alt || "Image"
   }">
       </a>
       <h1>${post.title}</h1>
       <p>${post.body?.slice(0, 100) || ""}...</p>
-      <a href="/post/index.html?id=${
+      <a href="./post/index.html?id=${
         post.id
       }" class="read-more-button1" aria-label="Read more about ${
     post.title
@@ -102,14 +102,14 @@ function createThumbnail(post) {
   const div = document.createElement("div");
   div.classList.add("thumbnail");
   div.innerHTML = `
-    <a href="/post/index.html?id=${post.id}" class="img-link">
+    <a href="./post/index.html?id=${post.id}" class="img-link">
       <img src="${post.media?.url || "default.jpg"}" alt="${
     post.media?.alt || "Image"
   }">
     </a>
     <h2>${post.title}</h2>
     <p>${post.body?.slice(0, 100) || ""}...</p>
-    <a href="/post/index.html?id=${
+    <a href="./post/index.html?id=${
       post.id
     }" class="read-more-button" aria-label="Read more about ${
     post.title
