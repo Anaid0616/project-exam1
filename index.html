@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover the latest hair trends, expert tips, and styling inspiration at Deleine Hairstudio. Our experienced stylists are here to help you achieve your dream look. Book your appointment today and transform your style at Deleine!"
+    />
+    <title>Blog | Deleine</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/img/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/img/favicon-16x16.png"
+    />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script type="module" src="/mjs/index.mjs"></script>
+    <script
+      src="https://kit.fontawesome.com/e9ab0044c8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div>
+          <a href="/">
+            <img
+              src="./assets/img/deleinelogo.png"
+              class="logo"
+              alt="Deleine Logo Icon - Navigate to Deleine's Homepage"
+            />
+          </a>
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="/account/register.html" class="nav-link" id="register-link"
+              >Register</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="/account/login.html" class="nav-link" id="login-link"
+              >Login</a
+            >
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-label="Newest Post">
+        <div class="carousel-container">
+          <button
+            class="carousel-button prev"
+            data-carousel-button="prev"
+            aria-label="Previous Slide"
+          >
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <div class="carousel" data-carousel>
+            <ul class="carousel-track" data-slides>
+              <!-- Carousel slides will be injected here via JavaScript -->
+            </ul>
+          </div>
+          <button
+            class="carousel-button next"
+            data-carousel-button="next"
+            aria-label="Next Slide"
+          >
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </section>
+
+      <div class="thumbnail-grid"></div>
+    </main>
+
+    <footer>
+      <div class="logo-contact-wrapper">
+        <div>
+          <a href="/">
+            <img
+              src="./assets/img/deleinelogofooter.png"
+              class="logo-footer"
+              alt="Deleine Logo Icon Footer - Navigate to Deleine's Homepage"
+            />
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <div>
+            <p class="strong">Address:</p>
+            <p>Gustav III:s Boulevard 17 solna</p>
+          </div>
+          <div>
+            <p class="strong">E-mail:</p>
+            <p>deleineab@outlook.com</p>
+          </div>
+          <div>
+            <p class="strong">Phone:</p>
+            <p>0722507474</p>
+          </div>
+        </div>
+      </div>
+      <div class="copy-container">
+        <div class="copy">Copyright &copy; 2024 Deleine</div>
+      </div>
+    </footer>
+    <div id="toast" class="toast"></div>
+  </body>
+</html>

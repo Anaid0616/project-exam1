@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage and update Deleine Hairstudio's blog posts as the admin. Create engaging content, share styling tips, and keep clients informed about the latest hair trends and salon news"
+    />
+    <title>Post | Deleine</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/img/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/img/favicon-16x16.png"
+    />
+
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <script type="module" src="/mjs/postindex.mjs"></script>
+    <script type="module" src="/mjs/share.mjs"></script>
+    <script
+      src="https://kit.fontawesome.com/e9ab0044c8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div>
+          <a href="/">
+            <img
+              src="../assets/img/deleinelogo.png"
+              class="logo"
+              alt="Deleine Logo Icon - Navigate to Deleine's Homepage"
+            />
+          </a>
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="../account/register.html"
+              class="nav-link"
+              id="register-link"
+              >Register</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="../account/login.html" class="nav-link" id="login-link"
+              >Login</a
+            >
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="headline">
+        <p class="go-back"><a href="../index.html">Blog</a> / Blog post</p>
+      </div>
+      <div class="loader"></div>
+      <div id="content">
+        <section class="blog-post">
+          <img
+            id="post-image"
+            src=""
+            class="blog-post-img"
+            alt="Detailed description of the blog image"
+          />
+
+          <div class="button-div">
+            <a
+              href="/post/edit.html"
+              class="create-btn"
+              id="create-button"
+              aria-label="Create a new blog post"
+              >Create</a
+            >
+
+            <a
+              href="/post/edit.html"
+              class="edit-btn"
+              data-id="POST_ID"
+              id="edit-button"
+              aria-label="Edit this blog post"
+              >Edit</a
+            >
+
+            <a
+              href="#"
+              class="delete-btn"
+              data-id="POST_ID"
+              id="delete-button"
+              aria-label="Delete this blog post"
+              >Delete</a
+            >
+          </div>
+
+          <h1 id="post-title">Title</h1>
+          <div class="author-day">
+            <div>
+              <i
+                class="fa-solid fa-circle-user fa-lg icons"
+                style="color: #decdb3"
+              ></i>
+              <p id="post-author">Author</p>
+              <p class="space">|</p>
+            </div>
+            <div>
+              <i
+                class="fa-regular fa-calendar fa-lg icons"
+                style="color: #decdb3"
+              ></i>
+              <p id="post-date">Publication day</p>
+              <p class="space">|</p>
+            </div>
+            <div>
+              <i
+                class="fa-solid fa-share fa-lg icons"
+                id="share-icon"
+                style="color: #decdb3"
+                aria-hidden="true"
+              ></i>
+              <p aria-label="Share this blog post">Share</p>
+            </div>
+          </div>
+          <p id="post-body">
+            <!-- Blog post content will go here -->
+          </p>
+        </section>
+      </div>
+
+      <div id="deleteModal" class="modal" style="display: none">
+        <div class="modal-content">
+          <h2>Confirm Deletion</h2>
+          <p>Are you sure you want to delete this post?</p>
+          <button id="confirmDelete" class="btn-confirm">Yes</button>
+          <button id="cancelDelete" class="btn-cancel">No</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="logo-contact-wrapper">
+        <div>
+          <a href="/">
+            <img
+              src="../assets/img/deleinelogofooter.png"
+              class="logo-footer"
+              alt="Deleine Logo Icon Footer - Navigate to Deleine's Homepage"
+            />
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <div>
+            <p class="strong">Address:</p>
+            <p>Gustav III:s Boulevard 17 solna</p>
+          </div>
+          <div>
+            <p class="strong">E-mail:</p>
+            <p>deleineab@outlook.com</p>
+          </div>
+          <div>
+            <p class="strong">Phone:</p>
+            <p>0722507474</p>
+          </div>
+        </div>
+      </div>
+      <div class="copy-container">
+        <div class="copy">Copyright &copy; 2024 Deleine</div>
+      </div>
+    </footer>
+    <div id="toast" class="toast"></div>
+  </body>
+</html>

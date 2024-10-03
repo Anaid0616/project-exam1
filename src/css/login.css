@@ -1,0 +1,39 @@
+@import url("./style.css");
+
+#main-content {
+  min-height: calc(100vh - 330px);
+}
+
+.login-form-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.login-form-wrapper div {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-wrapper input {
+  font-family: "Red Hat Display", system-ui, "Inter";
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+  padding-left: 10px;
+  border-radius: 5px 5px 5px 5px;
+  height: 55px;
+  margin-right: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: #8c7370 solid 2px;
+  font-size: 14px;
+}
+
+.login-form-wrapper a {
+  font-size: 14px;
+  text-decoration: underline;
+  padding: 10px 2px;
+}

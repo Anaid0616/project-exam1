@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Edit and update your Deleine Hairstudio blog posts easily. As an admin, you can modify content, change images, and ensure your posts reflect the latest trends and hairstudio updates. Keep your blog fresh and engaging!"
+    />
+    <title>Post edit | Deleine</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/img/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/img/favicon-16x16.png"
+    />
+
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <script type="module" src="/mjs/postedit.mjs"></script>
+    <script
+      src="https://kit.fontawesome.com/e9ab0044c8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div>
+          <a href="/">
+            <img
+              src="../assets/img/deleinelogo.png"
+              class="logo"
+              alt="Deleine Logo Icon - Navigate to Deleine's Homepage"
+            />
+          </a>
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="../account/register.html"
+              class="nav-link"
+              id="register-link"
+              >Register</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="../account/login.html" class="nav-link" id="login-link"
+              >Login</a
+            >
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="headline">
+        <p class="go-back">
+          <a href="../post/index.html">Blog Post</a> / Edit Blog Post
+        </p>
+      </section>
+      <h1 class="headline-center">Create/Edit Blog Post</h1>
+
+      <section class="edit-blog-post">
+        <form id="edit-form">
+          <div>
+            <label for="title-input">Title</label>
+            <input
+              type="text"
+              id="title-input"
+              placeholder="Blog Post Title"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="img-input">Img</label>
+            <input
+              type="text"
+              id="img-input"
+              placeholder="Blog Post Media URL"
+              required
+              pattern="https?://.+"
+              title="Please enter a valid img URL."
+            />
+          </div>
+
+          <div>
+            <label for="alt-input">Alt</label>
+            <input type="text" id="alt-input" placeholder="Blog Post Img Alt" />
+          </div>
+
+          <div>
+            <label for="body-input">Body</label>
+            <textarea
+              id="body-input"
+              class="hover"
+              rows="10"
+              placeholder="Blog Post Body"
+              required
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="tags-input">Tags</label>
+            <input
+              type="text"
+              id="tags-input"
+              placeholder="Tags "
+              pattern="^[a-zA-Z0-9, ]*$"
+              required
+              title="Tags should only contain letters, numbers, or commas."
+            />
+          </div>
+          <button type="submit" class="save">Save Post</button>
+        </form>
+      </section>
+      <div id="toast" class="toast"></div>
+    </main>
+
+    <footer>
+      <div class="logo-contact-wrapper">
+        <div>
+          <a href="/">
+            <img
+              src="../assets/img/deleinelogofooter.png"
+              class="logo-footer"
+              alt="Deleine Logo Icon Footer - Navigate to Deleine's Homepage"
+            />
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <div>
+            <p class="strong">Address:</p>
+            <p>Gustav III:s Boulevard 17 solna</p>
+          </div>
+          <div>
+            <p class="strong">E-mail:</p>
+            <p>deleineab@outlook.com</p>
+          </div>
+          <div>
+            <p class="strong">Phone:</p>
+            <p>0722507474</p>
+          </div>
+        </div>
+      </div>
+      <div class="copy-container">
+        <div class="copy">Copyright &copy; 2024 Deleine</div>
+      </div>
+    </footer>
+    <div id="toast" class="toast"></div>
+  </body>
+</html>
