@@ -1,26 +1,19 @@
 # FED1 Project Exam 1
 **Diana Bergelin**
-
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
-![Figma](https://img.shields.io/badge/-Figma-F24E1E?logo=figma&logoColor=white&style=for-the-badge)
-![VSCode](https://img.shields.io/badge/-VSCode-007ACC?logo=visual-studio-code&logoColor=white&style=for-the-badge)
-
-
-## **Project Overview**
-This project was developed as part of the **Front-End Development (FED1)** program at **Noroff**. It aims to put into practice the various skills learned throughout the first year, including HTML, CSS, JavaScript, and design.
-
-The goal of this assignment is to build a responsive **blogging application** for a fictional client. The application allows users to view, create, update, and delete blog posts via a front-end interface that interacts with an existing API. Admin features include user registration and login functionality, along with the ability to manage posts.
-
-The **client** chosen for this project is **Deleine Hairstudio**, a small and cozy Hairstudio with 3 employees offering the latest in hair coloring, techniques, and trends while providing a warm, welcoming community. The studio is located in Stockholm and has a cozy atmosphere where clients can escape the stresses of everyday life.
-
- ---
  
 ## **Deleine Hairstudio**
 
 ![image](https://github.com/user-attachments/assets/2a69575f-03c8-4ff4-ae90-b90ff9d581af)
 [Deleine](https://celadon-naiad-e81f9d.netlify.app/)
+
+
+
+## **Description**
+This project was developed as part of the **Front-End Development (FED1)** program at **Noroff**. It aims to put into practice the various skills learned throughout the first year, including HTML, CSS, JavaScript, and design.
+
+The goal of this assignment is to build a responsive **blogging application** for a fictional client. The application allows users to view, create, update, and delete blog posts via a front-end interface that interacts with an existing API. Admin features include user registration and login functionality, along with the ability to manage posts.
+
+The **client** chosen for this project is **Deleine Hairstudio**, a small and cozy Hairstudio with 3 employees offering the latest in hair coloring, techniques, and trends while providing a warm, welcoming community. The studio is located in Stockholm and has a cozy atmosphere where clients can escape the stresses of everyday life.
 
 ---
 
