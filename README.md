@@ -131,9 +131,9 @@ npm start
 
 ---
 
-## **Credits**
+## **Acknowledgments**
 
-**Design and Development:** [Your Name] (GitHub)
+**Design and Development:** [Diana Bergelin] (GitHub)
 
 **Icons:** Font Awesome for icons used in the project.
 
