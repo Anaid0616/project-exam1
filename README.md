@@ -133,7 +133,7 @@ npm start
 
 ## **Acknowledgments**
 
-**Design and Development:** [Diana Bergelin] (GitHub)
+**Design and Development:** [Diana Bergelin](https://github.com/Anaid0616))
 
 **Icons:** Font Awesome for icons used in the project.
 
