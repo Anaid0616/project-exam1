@@ -1,7 +1,7 @@
 # FED1 Project Exam 1
 **Diana Bergelin**
  
-## **Deleine Hairstudio**
+### Deleine Hairstudio
 
 ![image](https://github.com/user-attachments/assets/2a69575f-03c8-4ff4-ae90-b90ff9d581af)
 
@@ -11,7 +11,7 @@ This project was developed as part of the **Front-End Development (FED1)** progr
 
 ---
 
-## **Table of Contents**
+## Table of Contents
 - [Description](#description)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -25,7 +25,7 @@ This project was developed as part of the **Front-End Development (FED1)** progr
 
 ---
 
-## **Description**
+## Description
 
 The goal of this assignment is to build a responsive **blogging application** for a fictional client. The application allows users to view, create, update, and delete blog posts via a front-end interface that interacts with an existing API. Admin features include user registration and login functionality, along with the ability to manage posts.
 
@@ -33,7 +33,7 @@ The **client** chosen for this project is **Deleine Hairstudio**, a small and co
 
 ---
 
-## **Features**
+## Features
 
 - **Responsive Design:** Ensures the application looks great on desktop and mobile devices.
 - **User Authentication:** Users can register, login, and manage their blog posts.
@@ -44,7 +44,7 @@ The **client** chosen for this project is **Deleine Hairstudio**, a small and co
 
 ---
 
-## **Technologies Used**
+## Technologies Used
 
 - **Frontend:** 
    ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge) ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
@@ -56,32 +56,32 @@ The **client** chosen for this project is **Deleine Hairstudio**, a small and co
 
 ---
 
-## **Installation**
+## Installation
 
 Have Node.js installed on your machine (for running a local server)
 
-### **1. Clone the repository:**
+### 1. Clone the repository:
 ```bash
 git clone https://github.com/NoroffFEU/FED1-PE1-Anaid0616.git
 ```
-### **2. Navigate into the project folder:**
+### 2. Navigate into the project folder:
 ```bash
 cd FED1-PE1-Anaid0616
 ```
 
-### **3. Install dependencies:**
+### 3. Install dependencies:
 ```bash
 npm install
 ```
 
-### **4. Run the project on your local machine:**
+### 4. Run the project on your local machine:
 ```bash
 npm start
 ```
 
 ---
 
-## **Usage**
+## Usage
 
 **1. Register or Login** to access admin features.
 
@@ -96,7 +96,7 @@ npm start
 
 ---
 
-## **File Structure**
+## File Structure
 
 **/assets**              # Images, logos, and other static files
 
@@ -117,7 +117,7 @@ npm start
 
 ---
 
-## **Future improvemnts**
+## Future improvemnts
 
 **Pagination:** Implement pagination to limit the number of posts per page.
 
@@ -126,7 +126,7 @@ npm start
 
 ---
 
-## **Acknowledgments**
+## Acknowledgments
 
 **Design and Development:** [Diana Bergelin](https://github.com/Anaid0616)
 
@@ -147,13 +147,13 @@ npm start
 ---
 
 
-## **Contributing**
+## Contributing
 Since this is a school project, contributions are not needed. However, if you have any feedback or suggestions, feel free to reach out!
 
-## **Contact**
+## Contact
 If you want to connect or learn more about me:
 
-Email: diaber01800@stud.noroff.no
+Email: diana.bergelin@live.se
 
  [LinkedIn](https://www.linkedin.com/in/diana-b-4209a72ba/)
 
