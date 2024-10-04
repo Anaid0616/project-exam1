@@ -4,7 +4,7 @@
 ## **Deleine Hairstudio**
 
 ![image](https://github.com/user-attachments/assets/2a69575f-03c8-4ff4-ae90-b90ff9d581af)
-[Deleine](https://celadon-naiad-e81f9d.netlify.app/)
+[Live Site](https://celadon-naiad-e81f9d.netlify.app/)
 
 
 
@@ -151,7 +151,7 @@ Since this is a school project, contributions are not needed. However, if you ha
 ## **Contact**
 If you want to connect or learn more about me:
 
-Email: diana.bergelin@live.se
+Email: diaber01800@stud.noroff.no
 
  [LinkedIn](https://www.linkedin.com/in/diana-b-4209a72ba/)
 
