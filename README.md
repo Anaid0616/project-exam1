@@ -4,21 +4,15 @@
 ## **Deleine Hairstudio**
 
 ![image](https://github.com/user-attachments/assets/2a69575f-03c8-4ff4-ae90-b90ff9d581af)
-[Live Site](https://celadon-naiad-e81f9d.netlify.app/)
 
-
-
-## **Description**
 This project was developed as part of the **Front-End Development (FED1)** program at **Noroff**. It aims to put into practice the various skills learned throughout the first year, including HTML, CSS, JavaScript, and design.
 
-The goal of this assignment is to build a responsive **blogging application** for a fictional client. The application allows users to view, create, update, and delete blog posts via a front-end interface that interacts with an existing API. Admin features include user registration and login functionality, along with the ability to manage posts.
-
-The **client** chosen for this project is **Deleine Hairstudio**, a small and cozy Hairstudio with 3 employees offering the latest in hair coloring, techniques, and trends while providing a warm, welcoming community. The studio is located in Stockholm and has a cozy atmosphere where clients can escape the stresses of everyday life.
+[Live Site](https://celadon-naiad-e81f9d.netlify.app/)
 
 ---
 
 ## **Table of Contents**
-- [Project Overview](#project-overview)
+- [Description](#description)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
@@ -28,6 +22,14 @@ The **client** chosen for this project is **Deleine Hairstudio**, a small and co
 - [Credits](#credits)
 - [Delivery](#Delivery)
 - [License](#license)
+
+---
+
+## **Description**
+
+The goal of this assignment is to build a responsive **blogging application** for a fictional client. The application allows users to view, create, update, and delete blog posts via a front-end interface that interacts with an existing API. Admin features include user registration and login functionality, along with the ability to manage posts.
+
+The **client** chosen for this project is **Deleine Hairstudio**, a small and cozy Hairstudio with 3 employees offering the latest in hair coloring, techniques, and trends while providing a warm, welcoming community. The studio is located in Stockholm and has a cozy atmosphere where clients can escape the stresses of everyday life.
 
 ---
 
