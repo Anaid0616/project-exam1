@@ -1,8 +1,7 @@
 # FED1 Project Exam 1
 **Diana Bergelin**
- 
-### Deleine Hairstudio
 
+ 
 ![image](https://github.com/user-attachments/assets/2a69575f-03c8-4ff4-ae90-b90ff9d581af)
 
 This project was developed as part of the **Front-End Development (FED1)** program at **Noroff**. It aims to put into practice the various skills learned throughout the first year, including HTML, CSS, JavaScript, and design.
