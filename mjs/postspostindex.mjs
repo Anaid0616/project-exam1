@@ -1,4 +1,4 @@
-//fetching, updating and deleting in postindex
+//get, updating and deleting in postindex
 import {
   GET_POST_API_ENDPOINT,
   DELETE_POST_API_ENDPOINT,

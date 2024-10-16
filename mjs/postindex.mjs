@@ -37,4 +37,16 @@ async function main() {
   manageButtonVisibility();
 }
 
+// Example: Store blog posts in localStorage
+function savePostsToLocalStorage(posts) {
+  const savedPosts = { data: posts };
+  localStorage.setItem("blogPosts", JSON.stringify(savedPosts));
+}
+
+// Fetch posts from localStorage
+function getPostsFromLocalStorage() {
+  const savedPosts = JSON.parse(localStorage.getItem("blogPosts"));
+  return savedPosts ? savedPosts.data : [];
+}
+
 main();

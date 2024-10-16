@@ -31,30 +31,30 @@ export function setupNavbar() {
 
     // Optionally hide the "Register" link if the user is logged in
     if (registerLink) {
-      registerLink.style.display = "none"; // Hide the register link when logged in
-    }
-  } else {
-    // User is not logged in, keep "Login" and "Register" as they are
-    if (loginLink) {
-      loginLink.textContent = "Login";
-      loginLink.href = "../account/login.html";
+      registerLink.style.display = "none";
+    } else {
+      // User is not logged in, keep "Login" and "Register" as they are
+      if (loginLink) {
+        loginLink.textContent = "Login";
+        loginLink.href = "../account/login.html";
 
-      // Show the logout toast only if the user has just logged out
-      if (justLoggedOut) {
-        showToast("You have been logged out successfully!");
-        localStorage.removeItem("justLoggedOut");
+        // Show the logout toast only if the user has just logged out
+        if (justLoggedOut) {
+          showToast("You have been logged out successfully!");
+          localStorage.removeItem("justLoggedOut");
+        }
+      }
+
+      if (registerLink) {
+        registerLink.style.display = "block";
       }
     }
-
-    if (registerLink) {
-      registerLink.style.display = "block";
-    }
   }
-}
 
-function handleLogout(event) {
-  event.preventDefault();
-  removeAccessToken();
-  localStorage.setItem("justLoggedOut", "true");
-  window.location.href = "../account/login.html";
+  function handleLogout(event) {
+    event.preventDefault();
+    removeAccessToken();
+    localStorage.setItem("justLoggedOut", "true");
+    window.location.href = "./index.html";
+  }
 }

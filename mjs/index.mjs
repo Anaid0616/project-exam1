@@ -94,6 +94,17 @@ async function renderBlogFeed() {
     return;
   }
 
+  // Step 1: Ensure every post has a unique ID (if missing)
+  const updatedBlogPosts = blogPosts.map((post) => {
+    if (!post.id) {
+      post.id = generateUniqueId(); // Use function to generate ID if missing
+    }
+    return post;
+  });
+
+  const savedPosts = { data: updatedBlogPosts };
+  localStorage.setItem("blogPosts", JSON.stringify(savedPosts));
+
   // Clear existing content before rendering
   carouselTrack.innerHTML = "";
   thumbnailGrid.innerHTML = "";
