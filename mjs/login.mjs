@@ -52,6 +52,10 @@ async function loginUser(email, password) {
     if (response.ok) {
       const accessToken = json.data.accessToken;
       storeAccessToken(accessToken);
+      console.log("Registration response:", json);
+
+      localStorage.setItem("blogName", json.data.name);
+
       localStorage.setItem("justLoggedIn", "true");
       showToast("Login successful!", "success");
 
@@ -71,4 +75,14 @@ async function loginUser(email, password) {
     console.error("Login failed:", error);
     showToast("An error occurred during login. Please try again.", "error");
   }
+}
+
+function getBlogName() {
+  const blogName = localStorage.getItem("blogName");
+  if (!blogName) {
+    console.error("Blog name not found. Redirecting to login.");
+    window.location.href = "./login.html";
+    return null;
+  }
+  return blogName;
 }

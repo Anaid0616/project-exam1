@@ -1,6 +1,5 @@
 // remove post
 export function removePostFromLocalStorage(postId) {
-  // Get the current blog posts from localStorage
   let posts = JSON.parse(localStorage.getItem("blogPosts")) || {
     data: [],
     meta: {},

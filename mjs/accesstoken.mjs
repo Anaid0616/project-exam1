@@ -11,5 +11,5 @@ export function getAccessToken() {
 
 // Function to remove the access token (logout)
 export function removeAccessToken() {
-  localStorage.removeItem("accessToken"); // Remove the token from local storage
+  localStorage.removeItem("accessToken");
 }

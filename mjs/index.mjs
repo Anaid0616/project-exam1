@@ -9,23 +9,68 @@ import {
   removePostFromLocalStorage,
   updateLocalStoragePost,
 } from "./postutils.mjs";
-import { setupNavbar } from "./navbar.mjs"; // Import the navbar setup function
+import { setupNavbar } from "./navbar.mjs";
 
 // Set up the navbar for login/logout behavior
 setupNavbar();
 
+//slides
 let currentIndex = 0;
 let slides = [];
 let totalSlides = 3;
-const transitionTime = 500; // time in ms
+const transitionTime = 500;
 
 document.addEventListener("DOMContentLoaded", async () => {
   await renderBlogFeed();
+  manageButtonVisibility();
+});
+
+// Function to create a "Create" button for logged-in users
+function renderCreateButton() {
+  const createButton = document.createElement("button");
+  createButton.id = "create-button";
+  createButton.innerText = "Create New Post";
+  createButton.classList.add("create-post-button");
+
+  createButton.addEventListener("click", () => {
+    window.location.href = "./post/edit.html";
+  });
+
+  // Find the carousel and the thumbnail grid
+  const carouselContainer = document.querySelector(".carousel-container");
+  const thumbnailGrid = document.querySelector(".thumbnail-grid");
+
+  if (carouselContainer && thumbnailGrid) {
+    // Insert the button between the carousel and thumbnail grid
+    carouselContainer.insertAdjacentElement("afterend", createButton);
+  }
+}
+
+// Function to manage button visibility based on login status
+function manageButtonVisibility() {
+  const isLoggedIn = !!getAccessToken(); // Check if the user is logged in by checking for a valid token
+
+  const createButton = document.getElementById("create-button");
+  if (createButton) {
+    if (isLoggedIn) {
+      createButton.style.display = "block";
+    } else {
+      createButton.style.display = "none";
+    }
+  } else if (isLoggedIn) {
+    renderCreateButton();
+  }
+}
+
+// Call this function when the DOM is loaded
+document.addEventListener("DOMContentLoaded", async () => {
+  await renderBlogFeed(fetchBlogPosts);
+  manageButtonVisibility();
 });
 
 async function fetchBlogPosts() {
   try {
-    const response = await fetch(BLOG_POSTS_API_ENDPOINT);
+    const response = await fetch(BLOG_POSTS_API_ENDPOINT());
     if (!response.ok)
       throw new Error(`Failed to fetch posts: ${response.statusText}`);
     const data = await response.json();
@@ -41,8 +86,11 @@ async function renderBlogFeed() {
   const thumbnailGrid = document.querySelector(".thumbnail-grid");
 
   const blogPosts = await fetchBlogPosts();
+
   if (!Array.isArray(blogPosts) || blogPosts.length === 0) {
     console.log("No blog posts found.");
+    document.querySelector(".thumbnail-grid").innerHTML =
+      "<p>No posts available</p>";
     return;
   }
 
@@ -73,8 +121,7 @@ async function renderBlogFeed() {
     .addEventListener("click", () => moveSlide(-1));
 }
 
-// Function to create a carousel slide (I did the img carousel with help from Web Dev Simplified: www.youtube.com/watch?v=9HcxHDS2w1s, but it caused a great deal of problems because it wasn't in the flow, so in the end i changed it with help from chatGPT to a better one.
-
+// Function to create a carousel slide
 function createSlide(post) {
   const slide = document.createElement("li");
   slide.classList.add("carousel-slide");
@@ -97,7 +144,7 @@ function createSlide(post) {
   return slide;
 }
 
-// Function to create a thumbnail for the grid ( i did the grid with help from this www.youtube.com/watch?v=TuBwe6SLRlU&t=328s, and then got it updated to work with the other things i have with help from chatGPT)
+// Function to create a thumbnail for the grid
 function createThumbnail(post) {
   const div = document.createElement("div");
   div.classList.add("thumbnail");

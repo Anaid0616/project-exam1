@@ -104,6 +104,25 @@ body {
   text-overflow: ellipsis;
 }
 
+.create-post-button {
+  margin: 0 auto;
+  font-family: "Red Hat Display", system-ui, "Inter";
+  font-weight: 450;
+  color: black;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #decdb3;
+  border: black solid 2px;
+  align-self: flex-start;
+}
+
+.create-post-button:hover {
+  color: white;
+  background: black;
+  border: black solid 2px;
+  cursor: pointer;
+}
+
 .thumbnail-grid {
   justify-content: center;
   align-items: center;

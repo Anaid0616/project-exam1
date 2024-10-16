@@ -1,5 +1,17 @@
 @import url("./style.css");
 
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 .blog-post {
   max-width: 750px;
   margin: 0 auto;
@@ -20,7 +32,7 @@
   border-radius: 10px;
 }
 
-#post-title {
+.post-title {
   font-family: "EB Garamond", serif;
   margin-bottom: 10px;
   font-weight: 550;
@@ -86,13 +98,13 @@
   margin-right: 4px;
 }
 
-#share-icon {
+.share-div {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-#share-icon:hover {
-  transform: scale(1.2) rotate(10deg);
+.share-div:hover {
+  transform: scale(1.1);
 }
 
 .modal {
