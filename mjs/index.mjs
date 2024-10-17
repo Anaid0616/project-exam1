@@ -1,4 +1,6 @@
 import { getAccessToken } from "./accesstoken.mjs";
+import { BASE_API_URL } from "./api.mjs";
+
 import {
   BLOG_POSTS_API_ENDPOINT,
   UPDATE_POST_API_ENDPOINT,
@@ -10,6 +12,7 @@ import {
   updateLocalStoragePost,
 } from "./postutils.mjs";
 import { setupNavbar } from "./navbar.mjs";
+import { getBlogName } from "./api.mjs";
 
 // Set up the navbar for login/logout behavior
 setupNavbar();
@@ -70,10 +73,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function fetchBlogPosts() {
   try {
-    const response = await fetch(BLOG_POSTS_API_ENDPOINT());
-    if (!response.ok)
+    const apiUrl = BLOG_POSTS_API_ENDPOINT();
+    console.log("Fetching from API URL:", apiUrl);
+
+    // Don't send the Authorization header if the user is not logged in
+    const headers = {};
+    const accessToken = getAccessToken();
+    if (accessToken) {
+      headers["Authorization"] = `Bearer ${accessToken}`;
+    }
+
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: headers,
+    });
+
+    if (!response.ok) {
       throw new Error(`Failed to fetch posts: ${response.statusText}`);
+    }
+
     const data = await response.json();
+    console.log("Fetched posts response: ", data);
     return data.data;
   } catch (error) {
     console.error("Error fetching blog posts:", error);
@@ -85,7 +105,9 @@ async function renderBlogFeed() {
   const carouselTrack = document.querySelector("[data-slides]");
   const thumbnailGrid = document.querySelector(".thumbnail-grid");
 
+  console.log("Fetching blog posts...");
   const blogPosts = await fetchBlogPosts();
+  console.log("Fetched blog posts:", blogPosts);
 
   if (!Array.isArray(blogPosts) || blogPosts.length === 0) {
     console.log("No blog posts found.");

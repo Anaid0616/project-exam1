@@ -1,13 +1,11 @@
-const BASE_API_URL = "https://v2.api.noroff.dev";
+export const BASE_API_URL = "https://v2.api.noroff.dev";
 
 // Function to get the blog name (from localStorage or sessionStorage)
-function getBlogName() {
+// Fallback to "diana_bergelin" if no blog name is retrieved
+export function getBlogName() {
   const blogName = localStorage.getItem("blogName");
-  if (!blogName) {
-    console.error("Blog name not found. User might not be logged in.");
-    return null;
-  }
-  return blogName;
+  console.log("Blog name being used:", blogName || "diana_bergelin");
+  return blogName ? blogName : "diana_bergelin"; // Default to "diana_bergelin"
 }
 
 export const REGISTER_API_ENDPOINT = `${BASE_API_URL}/auth/register`;

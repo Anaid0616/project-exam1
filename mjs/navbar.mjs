@@ -54,6 +54,7 @@ export function setupNavbar() {
   function handleLogout(event) {
     event.preventDefault();
     removeAccessToken();
+    localStorage.removeItem("blogName"); // Clear the stored blog name on logout
     localStorage.setItem("justLoggedOut", "true");
     window.location.href = "./index.html";
   }
