@@ -1,18 +1,18 @@
 // redirectUtils.mjs
 export function redirectToHome() {
-  // Detect if running on localhost or production
-  const isLocalhost =
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1";
+  // Detect if we are on GitHub Pages (e.g., "username.github.io")
+  const isGithubPages = window.location.hostname.includes("github.io");
 
-  if (isLocalhost) {
-    // Use absolute path for local development
-    window.location.href = "/index.html";
-  } else {
-    // Use relative path for production (e.g., GitHub Pages)
-    const basePath =
-      window.location.origin +
-      window.location.pathname.replace(/\/[^\/]*$/, "");
-    window.location.href = `${basePath}/index.html`;
-  }
+  // Get the current pathname to check if it's a subdirectory
+  const currentPath = window.location.pathname;
+
+  // Check if we are on GitHub Pages or a subdirectory path
+  const isSubDirectory = currentPath.startsWith("/repository-name"); // Replace 'repository-name' with your actual repository name
+
+  // Use relative path if on GitHub Pages or a subdirectory
+  const homePath =
+    isGithubPages || isSubDirectory ? "./index.html" : "/index.html";
+
+  // Redirect
+  window.location.href = homePath;
 }
