@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               clearForm();
               setTimeout(() => {
                 console.log(postId);
-                window.location.href = "./index.html";
+                window.location.href = "/index.html";
               }, 1800);
             }
           } catch (error) {
