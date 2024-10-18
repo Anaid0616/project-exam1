@@ -105,6 +105,7 @@ body {
 }
 
 .create-post-button {
+  display: block;
   margin: 0 auto;
   font-family: "Red Hat Display", system-ui, "Inter";
   font-weight: 450;
