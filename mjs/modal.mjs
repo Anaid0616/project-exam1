@@ -1,5 +1,3 @@
-import { redirectToHome } from "./redirectutils.mjs";
-
 export function setupDeleteModal(post, deleteBlogPost) {
   const deleteButton = document.getElementById("delete-button");
 
@@ -30,7 +28,7 @@ export function setupDeleteModal(post, deleteBlogPost) {
       await deleteBlogPost(post.id);
       modal.style.display = "none"; // Hide the modal after deletion
       setTimeout(() => {
-        redirectToHome();
+        window.location.href = "/index.html";
       }, 1500);
     };
 

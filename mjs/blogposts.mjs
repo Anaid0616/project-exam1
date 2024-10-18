@@ -2,7 +2,6 @@ import { getAccessToken } from "./accesstoken.mjs";
 import { BLOG_POSTS_API_ENDPOINT } from "./api.mjs";
 import { updateLocalStoragePost } from "./postutils.mjs";
 import { showToast } from "./toast.mjs";
-import { redirectToHome } from "./redirectutils.mjs";
 
 // blogposts create, update, fetching, post edit
 
@@ -44,7 +43,7 @@ export async function createBlogPost(blogPost) {
 
     // Redirect to the index.html page
     setTimeout(() => {
-      redirectToHome();
+      window.location.href = "/index.html";
     }, 1500);
   } catch (error) {
     console.error("Failed to create blog post:", error);
