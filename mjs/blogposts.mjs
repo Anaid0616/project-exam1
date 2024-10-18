@@ -40,6 +40,11 @@ export async function createBlogPost(blogPost) {
         savedPosts.data
       );
     }
+
+    // Redirect to the index.html page
+    setTimeout(() => {
+      window.location.href = "/index.html";
+    }, 1500);
   } catch (error) {
     console.error("Failed to create blog post:", error);
     showToast("Failed to create blog post. Please try again.", "error");
