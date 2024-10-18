@@ -40,10 +40,18 @@
   border: #8c7370 solid 2px;
   margin-bottom: 15px;
   color: rgba(0, 0, 0, 0.5);
+  width: 100%;
 }
 
 #text-edit {
   font-family: "Red Hat Display", system-ui, "Inter";
+}
+
+#body-input {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-height: 150px;
 }
 
 .save {

@@ -1,4 +1,4 @@
-// blogService index
+// blogService.mjs
 import { BLOG_POSTS_API_ENDPOINT } from "./api.mjs";
 import { getAccessToken } from "./accesstoken.mjs";
 

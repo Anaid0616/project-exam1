@@ -115,6 +115,7 @@ body {
   background-color: #decdb3;
   border: black solid 2px;
   align-self: flex-start;
+  margin-top: 20px;
 }
 
 .create-post-button:hover {
@@ -124,10 +125,36 @@ body {
   cursor: pointer;
 }
 
+.category {
+  font-family: "EB Garamond", serif;
+  margin-left: 4.5%;
+  padding: 5px;
+}
+
+.filterbuttons {
+  margin-left: 4.5%;
+}
+
+.tag-button {
+  margin: 3px;
+  font-weight: 450;
+  padding: 7px;
+  background-color: #decdb3;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tag-button:hover {
+  background-color: black;
+  color: white;
+}
+
 .thumbnail-grid {
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -136,7 +163,6 @@ body {
   max-width: 1500px;
   margin: auto;
   padding: 10px 20px;
-  margin-top: 10px;
   margin-bottom: 40px !important;
 }
 

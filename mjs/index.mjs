@@ -7,6 +7,7 @@ import {
 } from "./blogservice.mjs";
 import { moveSlide, shouldShowCreateButton } from "./carouselservice.mjs";
 import { getAccessToken } from "./accesstoken.mjs";
+import { applyFilter, setupFilterButtons } from "./filter.mjs";
 
 // Set up the navbar
 setupNavbar();
@@ -15,9 +16,29 @@ let currentIndex = 0;
 let slides = [];
 let totalSlides = 3;
 
+function handleFilterChange(event) {
+  const target = event.target;
+
+  // Make sure the event is from a button and has a data-tag attribute
+  if (target && target.tagName === "BUTTON") {
+    const selectedTag = target.getAttribute("data-tag");
+    if (!selectedTag) {
+      console.error("Tag not found in clicked button");
+      return;
+    }
+    applyFilter(selectedTag, fetchBlogPosts); // Call applyFilter with the selected tag
+  } else {
+    console.error("Event target is not a valid button or missing data-tag");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   await renderBlogFeed();
   manageButtonVisibility();
+
+  // Set up filter buttons and apply initial filter
+  setupFilterButtons(handleFilterChange);
+  applyFilter("all");
 });
 
 // Render blog feed
@@ -25,9 +46,7 @@ async function renderBlogFeed() {
   const carouselTrack = document.querySelector("[data-slides]");
   const thumbnailGrid = document.querySelector(".thumbnail-grid");
 
-  console.log("Fetching blog posts...");
   const blogPosts = await fetchBlogPosts();
-  console.log("Fetched blog posts:", blogPosts);
 
   if (!Array.isArray(blogPosts) || blogPosts.length === 0) {
     console.log("No blog posts found.");
@@ -48,10 +67,13 @@ async function renderBlogFeed() {
   carouselTrack.style.width = `${totalSlides * 100}%`;
 
   // Render thumbnail grid (remaining posts)
-  blogPosts.slice(3).forEach((post) => {
+  const thumbnailPosts = blogPosts.slice(3); // Posts after the first 3
+  thumbnailPosts.forEach((post) => {
     const thumbnail = createThumbnailElement(post);
     thumbnailGrid.appendChild(thumbnail);
   });
+
+  applyFilter("all");
 
   // Add carousel button functionality
   document
