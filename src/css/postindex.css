@@ -19,7 +19,7 @@ main {
   margin-bottom: 40px;
 }
 
-#content {
+.content {
   display: none;
 }
 
