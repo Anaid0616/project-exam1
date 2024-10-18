@@ -28,7 +28,7 @@ export function setupDeleteModal(post, deleteBlogPost) {
       await deleteBlogPost(post.id);
       modal.style.display = "none"; // Hide the modal after deletion
       setTimeout(() => {
-        window.location.href = "/index.html";
+        window.location.href = "../index.html";
       }, 1500);
     };
 

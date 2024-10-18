@@ -43,7 +43,7 @@ export async function createBlogPost(blogPost) {
 
     // Redirect to the index.html page
     setTimeout(() => {
-      window.location.href = "/index.html";
+      window.location.href = "../index.html";
     }, 1500);
   } catch (error) {
     console.error("Failed to create blog post:", error);
