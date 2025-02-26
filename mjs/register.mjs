@@ -52,10 +52,6 @@ async function registerUser(name, email, password) {
     const json = await response.json();
 
     if (response.ok) {
-      // If registration is successful
-      console.log("User registered successfully:", json);
-      console.log("Registration response data:", json);
-
       // Save the blog name (e.g., user's email) to localStorage
       localStorage.setItem("blogName", json.data.name);
 

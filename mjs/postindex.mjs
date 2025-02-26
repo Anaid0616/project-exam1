@@ -13,7 +13,7 @@ setupNavbar();
 
 async function main() {
   const postId = getQueryParam("id");
-  console.log("Post ID:", postId);
+
   if (!postId) {
     console.error("No blog post ID found in the URL.");
     return;

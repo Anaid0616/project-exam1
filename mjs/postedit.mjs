@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", async function () {
               showToast("Post created successfully!");
               clearForm();
               setTimeout(() => {
-                console.log(postId);
                 window.location.href = "../index.html";
               }, 1800);
             }

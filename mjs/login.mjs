@@ -52,7 +52,6 @@ async function loginUser(email, password) {
     if (response.ok) {
       const accessToken = json.data.accessToken;
       storeAccessToken(accessToken);
-      console.log("Registration response:", json);
 
       localStorage.setItem("blogName", json.data.name);
 

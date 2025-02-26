@@ -3,9 +3,7 @@ import { BLOG_POSTS_API_ENDPOINT } from "./api.mjs";
 import { updateLocalStoragePost } from "./postutils.mjs";
 import { showToast } from "./toast.mjs";
 
-// blogposts create, update, fetching, post edit
-
-// Create a new blog post
+// blog posts create, update, fetching, post edit
 export async function createBlogPost(blogPost) {
   try {
     const accessToken = getAccessToken();
@@ -75,7 +73,6 @@ export async function updateBlogPost(postId, updatedPost) {
 
     const json = await response.json();
     updateLocalStoragePost(postId, json.data);
-    console.log(`Post with ID ${postId} updated successfully.`);
   } catch (error) {
     console.error("Error updating post:", error);
   }
