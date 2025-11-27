@@ -7,7 +7,7 @@
 A responsive, accessible, and visually engaging website for Deleine Hairstudio, built as part of the **Front-End Development (FED1)** program at **Noroff School of Technology and Digital Media**. It aims to put into practice the various skills learned throughout the first year, including HTML, CSS, JavaScript, and design.
 
 
-[Live Site Deleine](https://celadon-naiad-e81f9d.netlify.app/)
+[Live Site Deleine](https://deleine-blog.netlify.app/)
 
 ---
 
