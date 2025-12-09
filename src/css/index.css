@@ -6,7 +6,6 @@ body {
 }
 
 /* --- carousel --- */
-
 .carousel-container {
   max-width: 1300px;
   margin: 0 auto;
@@ -70,7 +69,7 @@ body {
 
 .carousel-button {
   position: absolute;
-  top: 55%;
+  top: 50%;
   transform: translateY(-50%);
   background: #d0bda1;
   color: white;
@@ -80,6 +79,9 @@ body {
   z-index: 10;
   font-size: 2rem;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-button.prev {
@@ -150,12 +152,13 @@ body {
 
 .category {
   font-family: 'EB Garamond', serif;
-  margin-left: 4.5%;
-  padding: 5px;
+  margin-left: 6.8%;
+  padding-left: 1px;
+  padding-right: 1px;
 }
 
 .filterbuttons {
-  margin-left: 4.5%;
+  margin-left: 6.8%;
 }
 
 .tag-button {
@@ -183,7 +186,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   row-gap: 40px;
   column-gap: 30px;
-  max-width: 1500px;
+  max-width: 1430px;
   margin: auto;
   padding: 10px 20px;
   margin-bottom: 40px !important;
@@ -191,7 +194,7 @@ body {
 
 .thumbnail-grid img {
   width: 100%;
-  height: 350px;
+  height: 320px;
   object-fit: cover;
   object-position: center;
   border-radius: 10px 10px 10px 10px;
@@ -254,6 +257,39 @@ body {
   border: black solid 2px;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0 50px 0;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid black;
+  background-color: #decdb3;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pagination button.active {
+  background-color: black;
+  color: white;
+}
+
+.pagination button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* active */
+.tag-button.active {
+  background-color: black;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .thumbnail-grid {
     padding: 40px 60px;
@@ -288,5 +324,48 @@ body {
 @media (max-width: 440px) {
   .carousel-slide img {
     height: 300px;
+  }
+}
+
+@media (min-width: 1340px) {
+  .carousel-button.prev {
+    left: 100px;
+  }
+
+  .carousel-button.next {
+    right: 100px;
+  }
+}
+
+/* --- laptops, iPads landscape --- */
+@media (max-width: 1340px) and (min-width: 800px) {
+  .carousel-slide {
+    flex: 0 0 45%;
+  }
+
+  .carousel-track {
+    gap: 1.5rem;
+  }
+}
+
+/* --- MOBILE --- */
+@media (max-width: 800px) {
+  .carousel {
+    overflow: hidden; /* one img a time */
+  }
+
+  .carousel-track {
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+  }
+
+  .carousel-slide.center-slide {
+    transform: none !important;
+    box-shadow: none !important;
+    opacity: 1;
   }
 }

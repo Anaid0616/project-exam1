@@ -5,79 +5,71 @@ import {
   createSlideElement,
   createThumbnailElement,
 } from './blogservice.mjs';
-import { moveSlide, shouldShowCreateButton } from './carouselservice.mjs';
+import { shouldShowCreateButton } from './carouselservice.mjs';
 import { getAccessToken } from './accesstoken.mjs';
-import { applyFilter, setupFilterButtons } from './filter.mjs';
+import {
+  initPagination,
+  setPaginationItems,
+  getPageItems,
+  renderPagination,
+} from './pagination.mjs';
 
-// Set up the navbar
+// --- KONSTANTER / STATE ---
+const POSTS_PER_PAGE = 12;
+
+let allPosts = [];
+let thumbnailPosts = []; // alla inlägg efter de 3 första
+let filteredThumbnailPosts = []; // efter kategori
+
+let carouselTrack;
+let slides = [];
+
+// Navbar
 setupNavbar();
 
-let currentIndex = 0;
-let slides = [];
-let totalSlides = 3;
-let carouselTrack;
-
-function handleFilterChange(event) {
-  const target = event.target;
-
-  // Make sure the event is from a button and has a data-tag attribute
-  if (target && target.tagName === 'BUTTON') {
-    const selectedTag = target.getAttribute('data-tag');
-    if (!selectedTag) {
-      console.error('Tag not found in clicked button');
-      return;
-    }
-    applyFilter(selectedTag, fetchBlogPosts); // Call applyFilter with the selected tag
-  } else {
-    console.error('Event target is not a valid button or missing data-tag');
-  }
-}
-
+// När sidan laddas
 document.addEventListener('DOMContentLoaded', async () => {
+  // Initiera pagination–modulen (måste göras efter DOM finns)
+  initPagination({ selector: '#pagination', perPage: POSTS_PER_PAGE });
+
   await renderBlogFeed();
+  setupFilterButtonsForPagination();
   manageButtonVisibility();
 
-  // Set up filter buttons and apply initial filter
-  setupFilterButtons(handleFilterChange);
-  applyFilter('all');
+  // initialt filter
+  applyTagFilter('all');
 });
 
-// Render blog feed
+// -----------------------------------------------------------------------------
+// Hämta och rendera carouselen + förbereda grid–data
+// -----------------------------------------------------------------------------
 async function renderBlogFeed() {
   carouselTrack = document.querySelector('[data-slides]');
 
   const thumbnailGrid = document.querySelector('.thumbnail-grid');
-
   const blogPosts = await fetchBlogPosts();
 
   if (!Array.isArray(blogPosts) || blogPosts.length === 0) {
-    console.log('No blog posts found.');
     thumbnailGrid.innerHTML = '<p>No posts available</p>';
     return;
   }
 
-  // Clear existing content before rendering
+  allPosts = blogPosts;
+
+  // Rensa
   carouselTrack.innerHTML = '';
   thumbnailGrid.innerHTML = '';
 
-  // Render carousel slides (first 3 posts)
-  slides = blogPosts.slice(0, 3).map((post) => createSlideElement(post));
+  // CAROUSEL = 3 senaste
+  slides = allPosts.slice(0, 3).map((post) => createSlideElement(post));
   slides.forEach((slide) => carouselTrack.appendChild(slide));
-  totalSlides = slides.length;
-
   updateCarouselClasses();
 
-  // Render thumbnail grid (remaining posts)
-  const thumbnailPosts = blogPosts.slice(3); // Posts after the first 3
-  thumbnailPosts.forEach((post) => {
-    const thumbnail = createThumbnailElement(post);
-    thumbnailGrid.appendChild(thumbnail);
-  });
+  // GRID–data = resten
+  thumbnailPosts = allPosts.slice(3);
+  filteredThumbnailPosts = thumbnailPosts;
 
-  applyFilter('all');
-
-  // Add carousel button functionality
-
+  // Carousel–knappar
   document
     .querySelector('.carousel-button.next')
     .addEventListener('click', () => {
@@ -100,6 +92,87 @@ async function renderBlogFeed() {
     });
 }
 
+// -----------------------------------------------------------------------------
+// GRID–rendering med pagination–modulen
+// -----------------------------------------------------------------------------
+function renderThumbnailPage() {
+  const thumbnailGrid = document.querySelector('.thumbnail-grid');
+  thumbnailGrid.innerHTML = '';
+
+  const postsToShow = getPageItems();
+
+  postsToShow.forEach((post) => {
+    const thumbnail = createThumbnailElement(post);
+    thumbnailGrid.appendChild(thumbnail);
+  });
+
+  // rita knappar och använd callback när sida ändras
+  renderPagination(() => {
+    renderThumbnailPage();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// -----------------------------------------------------------------------------
+// Filterknappar (kategori) + koppling till pagination
+// -----------------------------------------------------------------------------
+function setupFilterButtonsForPagination() {
+  const buttons = document.querySelectorAll('.tag-button');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const tag = button.dataset.tag;
+      if (!tag) return;
+
+      setActiveTagButton(tag);
+      applyTagFilter(tag);
+    });
+  });
+
+  setActiveTagButton('all');
+}
+
+function setActiveTagButton(tag) {
+  const buttons = document.querySelectorAll('.tag-button');
+  buttons.forEach((btn) => {
+    if (btn.dataset.tag === tag) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+function applyTagFilter(tag) {
+  if (!thumbnailPosts || thumbnailPosts.length === 0) return;
+
+  if (tag === 'all') {
+    filteredThumbnailPosts = thumbnailPosts;
+  } else {
+    filteredThumbnailPosts = thumbnailPosts.filter((post) => {
+      let tags = [];
+
+      // Anpassa efter hur din API–response ser ut
+      if (Array.isArray(post.tags)) {
+        tags = post.tags;
+      } else if (typeof post.tags === 'string') {
+        tags = post.tags.split(',').map((t) => t.trim());
+      } else if (post.tag) {
+        tags = [post.tag];
+      }
+
+      return tags.map((t) => t.toLowerCase()).includes(tag.toLowerCase());
+    });
+  }
+
+  // uppdatera pagination–modulen med nya items
+  setPaginationItems(filteredThumbnailPosts);
+  renderThumbnailPage();
+}
+
+// -----------------------------------------------------------------------------
+// Carousel klasser (som du hade innan)
+// -----------------------------------------------------------------------------
 function updateCarouselClasses() {
   if (!carouselTrack) return;
 
@@ -110,13 +183,23 @@ function updateCarouselClasses() {
     slide.classList.remove('center-slide', 'left-slide', 'right-slide');
   });
 
-  // position 0 = left, 1 = middle (active), 2 = right
+  // MOBILE
+  if (window.innerWidth <= 900) {
+    if (slideElements[0]) {
+      slideElements[0].classList.add('center-slide');
+    }
+    return;
+  }
+
+  // DESKTOP/TABLET
   if (slideElements[0]) slideElements[0].classList.add('left-slide');
   if (slideElements[1]) slideElements[1].classList.add('center-slide');
   if (slideElements[2]) slideElements[2].classList.add('right-slide');
 }
 
-// Manage button visibility
+// -----------------------------------------------------------------------------
+// Create–post–knappen (samma som innan)
+// -----------------------------------------------------------------------------
 function manageButtonVisibility() {
   const isLoggedIn = !!getAccessToken();
   const createButton = document.getElementById('create-button');
@@ -141,9 +224,7 @@ function renderCreateButton() {
   });
 
   const carouselContainer = document.querySelector('.carousel-container');
-  const thumbnailGrid = document.querySelector('.thumbnail-grid');
-
-  if (carouselContainer && thumbnailGrid) {
+  if (carouselContainer) {
     carouselContainer.insertAdjacentElement('afterend', createButton);
   }
 }
