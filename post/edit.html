@@ -110,12 +110,32 @@
           </div>
 
           <label for="body-input">Body</label>
-          <textarea
-            id="body-input"
-            rows="10"
-            cols="50"
-            placeholder="Write your post here..."
-          ></textarea>
+
+          <div class="editor-wrapper">
+            <div class="editor-toolbar">
+              <button type="button" data-format="bold" title="Bold">
+                <i class="fa-solid fa-bold"></i>
+              </button>
+              <button type="button" data-format="italic" title="Italic">
+                <i class="fa-solid fa-italic"></i>
+              </button>
+              <button type="button" data-format="underline" title="Underline">
+                <i class="fa-solid fa-underline"></i>
+              </button>
+              <button type="button" data-format="h2" title="Heading">H2</button>
+              <button type="button" data-format="bullet" title="Bullet list">
+                • List
+              </button>
+            </div>
+
+            <textarea
+              id="body-input"
+              rows="10"
+              cols="50"
+              placeholder="Write your post here..."
+            ></textarea>
+            <small>Format saves as HTML (&lt;strong&gt;, &lt;em&gt;).</small>
+          </div>
 
           <div>
             <label for="tags-input">Tags</label>

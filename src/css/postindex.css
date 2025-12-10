@@ -1,4 +1,4 @@
-@import url("./style.css");
+@import url('./style.css');
 
 body,
 html {
@@ -33,7 +33,7 @@ main {
 }
 
 .post-title {
-  font-family: "EB Garamond", serif;
+  font-family: 'EB Garamond', serif;
   margin-bottom: 10px;
   font-weight: 550;
 }
@@ -125,6 +125,31 @@ main {
   width: 300px;
   text-align: center;
   border-radius: 10px;
+}
+
+/* default text keep styling */
+#post-body {
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+/* Lists */
+#post-body ul,
+#post-body ol {
+  white-space: normal !important;
+  list-style-type: disc !important;
+  padding-left: 1.5rem;
+  margin-top: -15px;
+  margin-bottom: -35px;
+}
+
+/* bullet */
+#post-body li {
+  display: list-item;
+  list-style-type: disc !important;
+  list-style-position: outside;
+  text-align: left;
+  margin: -20px 0;
 }
 
 .btn-confirm,
