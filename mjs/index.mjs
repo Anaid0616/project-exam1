@@ -14,12 +14,12 @@ import {
   renderPagination,
 } from './pagination.mjs';
 
-// --- KONSTANTER / STATE ---
+// --- CONSTANTS / STATE ---
 const POSTS_PER_PAGE = 12;
 
 let allPosts = [];
-let thumbnailPosts = []; // alla inlägg efter de 3 första
-let filteredThumbnailPosts = []; // efter kategori
+let thumbnailPosts = [];
+let filteredThumbnailPosts = [];
 
 let carouselTrack;
 let slides = [];
@@ -27,9 +27,9 @@ let slides = [];
 // Navbar
 setupNavbar();
 
-// När sidan laddas
+// When DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
-  // Initiera pagination–modulen (måste göras efter DOM finns)
+  // Initiera pagination–module
   initPagination({ selector: '#pagination', perPage: POSTS_PER_PAGE });
 
   await renderBlogFeed();
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // -----------------------------------------------------------------------------
-// Hämta och rendera carouselen + förbereda grid–data
+// Get and render carouselen + grid
 // -----------------------------------------------------------------------------
 async function renderBlogFeed() {
   carouselTrack = document.querySelector('[data-slides]');
@@ -56,20 +56,20 @@ async function renderBlogFeed() {
 
   allPosts = blogPosts;
 
-  // Rensa
+  // clear
   carouselTrack.innerHTML = '';
   thumbnailGrid.innerHTML = '';
 
-  // CAROUSEL = 3 senaste
+  // CAROUSEL = 3 latest
   slides = allPosts.slice(0, 3).map((post) => createSlideElement(post));
   slides.forEach((slide) => carouselTrack.appendChild(slide));
   updateCarouselClasses();
 
-  // GRID–data = resten
+  // GRID–data = the rest
   thumbnailPosts = allPosts.slice(3);
   filteredThumbnailPosts = thumbnailPosts;
 
-  // Carousel–knappar
+  // Carousel–buttons
   document
     .querySelector('.carousel-button.next')
     .addEventListener('click', () => {
@@ -93,7 +93,7 @@ async function renderBlogFeed() {
 }
 
 // -----------------------------------------------------------------------------
-// GRID–rendering med pagination–modulen
+// GRID–rendering with pagination
 // -----------------------------------------------------------------------------
 function renderThumbnailPage() {
   const thumbnailGrid = document.querySelector('.thumbnail-grid');
@@ -106,7 +106,7 @@ function renderThumbnailPage() {
     thumbnailGrid.appendChild(thumbnail);
   });
 
-  // rita knappar och använd callback när sida ändras
+  // buttons for pagination
   renderPagination(() => {
     renderThumbnailPage();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -114,7 +114,7 @@ function renderThumbnailPage() {
 }
 
 // -----------------------------------------------------------------------------
-// Filterknappar (kategori) + koppling till pagination
+// Filter buttons for pagination
 // -----------------------------------------------------------------------------
 function setupFilterButtonsForPagination() {
   const buttons = document.querySelectorAll('.tag-button');
@@ -152,7 +152,7 @@ function applyTagFilter(tag) {
     filteredThumbnailPosts = thumbnailPosts.filter((post) => {
       let tags = [];
 
-      // Anpassa efter hur din API–response ser ut
+      // Adjust for different tag formats
       if (Array.isArray(post.tags)) {
         tags = post.tags;
       } else if (typeof post.tags === 'string') {
@@ -165,13 +165,13 @@ function applyTagFilter(tag) {
     });
   }
 
-  // uppdatera pagination–modulen med nya items
+  // update pagination module with filtered items
   setPaginationItems(filteredThumbnailPosts);
   renderThumbnailPage();
 }
 
 // -----------------------------------------------------------------------------
-// Carousel klasser (som du hade innan)
+// Carousel
 // -----------------------------------------------------------------------------
 function updateCarouselClasses() {
   if (!carouselTrack) return;
@@ -198,7 +198,7 @@ function updateCarouselClasses() {
 }
 
 // -----------------------------------------------------------------------------
-// Create–post–knappen (samma som innan)
+// Create–post
 // -----------------------------------------------------------------------------
 function manageButtonVisibility() {
   const isLoggedIn = !!getAccessToken();
