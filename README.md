@@ -2,7 +2,8 @@
 **Diana Bergelin**
 
  
-![image](https://github.com/user-attachments/assets/2a69575f-03c8-4ff4-ae90-b90ff9d581af)
+![Deleine blog](https://github.com/user-attachments/assets/53d0b629-142e-4845-a5f0-4b490c8a54f1)
+
 
 A responsive, accessible, and visually engaging website for Deleine Hairstudio, built as part of the **Front-End Development (FED1)** program at **Noroff School of Technology and Digital Media**. It aims to put into practice the various skills learned throughout the first year, including HTML, CSS, JavaScript, and design.
 
